@@ -1,0 +1,50 @@
+{% ckan_extends %}
+
+{% block package_info %}
+    {% if pkg %}
+    <section class="module module-narrow">
+      <div class="module context-info">
+        <div class="module-content">
+          {% block package_info_inner %}
+            {% block heading %}
+              <h1 class="heading">{{ h.dataset_display_name(pkg) }}</h1>
+            {% endblock %}
+            {% block nums %}
+              {% set num_followers = h.follow_count('dataset', pkg.id) %}
+              <div class="nums">
+                <dl>
+                  <dt>{{ _('Followers') }}</dt>
+                  <dd data-module="followers-counter" data-module-id="{{ pkg.id }}" data-module-num_followers="{{ num_followers }}">{{ h.SI_number_span(num_followers) }}</dd>
+                </dl>
+              </div>
+            {% endblock %}
+            {% block follow_button %}
+              {% if not hide_follow_button %}
+                <div class="follow_button">
+                  {{ h.follow_button('dataset', pkg.id) }}
+                </div>
+              {% endif %}
+            {% endblock %}
+          {% endblock %}
+        </div>
+      </div>
+    </section>
+    {% if pkg.wkt %}
+    <!-- start handling geography spatial data -->       
+    
+    {% asset "dataset_geo_display/dataset_geo_display-js" %}
+    
+    <section class="module module-narrow">
+        <h2 class="module-heading"><i class="fa fa-map"></i>{{ _('Geography Coverage') }}</h2>
+        <div class="module context-info">
+            <div class="module-content">
+                <div id="map" style="height: 250px; width: 100%; position: relative; outline: none;"
+                    data-module="map_module_display"
+                    data-module-geojson="{{ h.get_geojson(pkg.wkt) }}">
+                </div>
+            </div>
+        </div>
+    </section>    
+    {% endif %}
+  {% endif %}
+{% endblock %}

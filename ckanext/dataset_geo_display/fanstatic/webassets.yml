@@ -1,0 +1,14 @@
+dataset_geo_display-js:
+  filter: rjsmin
+  output: ckanext-dataset_geo_display/%(version)s-dataset_geo_display.js
+  contents:
+    - js/dataset_geo_display.js
+  extra:
+    preload:
+      - base/main
+
+# dataset_geo_display-css:
+#   filter: cssrewrite
+#   output: ckanext-dataset_geo_display/%(version)s-dataset_geo_display.css
+#   contents:
+#     - css/dataset_geo_display.css
