@@ -1,0 +1,11 @@
+leaflet-js:
+  filter: rjsmin
+  output: leaflet/%(version)s-leaflet.js
+  contents:
+    - leaflet/leaflet.js
+
+leaflet-css:
+  filter: cssrewrite
+  output: leaflet/%(version)s-leaflet.css
+  contents:
+    - leaflet/leaflet.css
