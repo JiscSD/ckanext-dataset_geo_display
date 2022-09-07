@@ -20,6 +20,7 @@ class DatasetGeoDisplayPlugin(plugins.SingletonPlugin):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'dataset_geo_display')
+        toolkit.add_resource('assets', 'dataset_geo_display')
         
     # ITemplateHelpers
 

@@ -53,11 +53,9 @@ or if the server is on AWS, called
      sudo reboot now 
 ```
 
-## Config settings
+## Dependency
 
-To make the extensions work, the corresponding vocabulary-tags must be loaded beforehand.
-They are "Topics", "Year", "Unit" and "Area_type".
-
+The extension requires python library [geomet](https://github.com/geomet/geomet), and js library [leaflet](https://leafletjs.com/index.html).
 
 ## Developer installation
 
